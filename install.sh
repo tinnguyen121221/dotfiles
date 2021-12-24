@@ -24,6 +24,8 @@ sudo ln -sf "${PWD}/.gitconfig" ~/.gitconfig
 sudo apt install -y zsh
 
 # Install oh-my-zsh
+unset ZSH
+rm -rf ~/.oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
 
 # Install startship
