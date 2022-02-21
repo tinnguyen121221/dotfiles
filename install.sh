@@ -25,6 +25,9 @@ sudo apt install -y zsh
 rm -rf ~/.oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
 
+# Install oh-my-posh
+sudo wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-amd64 -O /usr/local/bin/oh-my-posh
+sudo chmod +x /usr/local/bin/oh-my-posh
 
 # Install oh-my-zsh plugins
 ZSH_CUSTOM=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}
