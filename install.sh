@@ -1,37 +1,35 @@
 #!/usr/bin/sh
 
-# Machine initilize script
+backupAndLink(){
+    filename=$1;
+    path=~/$filename;
 
-sudo apt-get update && sudo apt-get upgrade
+    if [ -f $path ]; then
+        echo "Moving $path to $path.bak"
+        mv $path $path.bak
+    fi
 
-# Link dotfiles
-mv ~/.zshrc ~/.zshrc.bak
-sudo ln -sf "${PWD}/.zshrc" ~/.zshrc
+    ln -sv "${PWD}/$filename" $path
+}
 
-mv ~/.vimrc ~/.vimrc.bak
-# mkdir -p ~/.config/nvim
-# sudo ln -sf "${PWD}/.vimrc" ~/.config/nvim/init.vim
-sudo ln -sf "${PWD}/.vimrc" ~/.vimrc
+backupAndLink .zshrc
+backupAndLink .vimrc
+backupAndLink .iterm2.omp.json
 
-mkdir -p ~/.config
-mv ~/.config/startship.toml ~/.config/starship.toml.bak
-sudo ln -sf "${PWD}/.config/starship.toml" ~/.config/starship.toml
-
-mv ~/.gitconfig ~/.gitconfig.bak
-sudo ln -sf "${PWD}/.gitconfig" ~/.gitconfig
+sudo apt-get update
 
 # Install zsh
 sudo apt install -y zsh
 
 # Install oh-my-zsh
-unset ZSH
 rm -rf ~/.oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
 
-# Install startship
-sh -c "$(curl -fsSL https://starship.rs/install.sh)"
 
 # Install oh-my-zsh plugins
+ZSH_CUSTOM=${ZSH_CUSTOM:-~/.oh-my-zsh/custom}
+rm -rf "$ZSH_CUSTOM/plugins/zsh-autosuggestions"
+rm -rf "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting"
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 

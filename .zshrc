@@ -104,5 +104,4 @@ alias code="code --remote wsl+$WSL_DISTRO_NAME"
 alias e="explorer.exe"
 #
 #
-# Starship shell
-eval $(starship init zsh)
+eval "$(oh-my-posh --init --shell zsh --config ~/.iterm2.omp.json)"
