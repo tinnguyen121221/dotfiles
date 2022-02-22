@@ -9,7 +9,7 @@
           "foreground": "#d2ff5e",
           "powerline_symbol": "\ue0b0",
           "properties": {
-            "template": " {{ .UserName }} "
+            "template": " {{ if .SSHSession }}\uf817 {{ .UserName }}@{{ .HostName }}{{else}}{{ .UserName }}{{ end }} "
           },
           "style": "powerline",
           "type": "session"
