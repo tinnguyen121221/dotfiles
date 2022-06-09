@@ -1,0 +1,2 @@
+sudo update-alternatives --install /usr/bin/python python $(which python$1) 1
+sudo update-alternatives --config python
