@@ -13,22 +13,20 @@ fi
 
 VERSION="$1"
 FILE="/etc/apt/sources.list"
-SOURCEPACKAGE="deb-src http://archive.ubuntu.com/ubuntu/ bionic main"
 DOWNLOAD_URL="https://www.python.org/ftp/python/$VERSION/Python-$VERSION.tgz"
 DOWNLOADED_FILE=$(basename "$DOWNLOAD_URL")
 EXTRACTED_FOLDER=$(basename "$DOWNLOADED_FILE" .tgz)
 
-if ! grep -q "$SOURCEPACKAGE" "$FILE"; then
-  echo "deb-src http://archive.ubuntu.com/ubuntu/ bionic main" | sudo tee -a /etc/apt/sources.list 
-fi
-
 sudo apt-get update
-sudo apt-get -y build-dep python3.6
+sudo apt-get install build-essential gdb lcov pkg-config \
+      libbz2-dev libffi-dev libgdbm-dev libgdbm-compat-dev liblzma-dev \
+      libncurses5-dev libreadline6-dev libsqlite3-dev libssl-dev \
+      lzma lzma-dev tk-dev uuid-dev zlib1g-dev
 
 
 # Download, extract Python
 mkdir -p ~/tmp && cd ~/tmp
-wget $DOWNLOAD_URL
+wget $DOWNLOAD_URL -O $DOWNLOADED_FILE
 tar -xzf "$DOWNLOADED_FILE"
 
 # Install Python
