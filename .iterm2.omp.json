@@ -8,10 +8,8 @@
           "background": "#003543",
           "foreground": "#d2ff5e",
           "powerline_symbol": "\ue0b0",
-          "properties": {
-            "template": " {{ if .SSHSession }}\uf817 {{ .UserName }}@{{ .HostName }}{{else}}{{ .UserName }}{{ end }} "
-          },
           "style": "powerline",
+          "template": " {{ if .SSHSession }}\uf817 {{ .UserName }}@{{ .HostName }}{{else}}{{ .UserName }}{{ end }} ",
           "type": "session"
         },
         {
@@ -20,10 +18,10 @@
           "powerline_symbol": "\ue0b0",
           "properties": {
             "folder_separator_icon": "/",
-            "style": "full",
-            "template": " \ue5ff {{ .Path }} "
+            "style": "full"
           },
           "style": "powerline",
+          "template": " \ue5ff {{ .Path }} ",
           "type": "path"
         },
         {
@@ -38,10 +36,10 @@
           "powerline_symbol": "\ue0b0",
           "properties": {
             "fetch_stash_count": true,
-            "fetch_status": true,
-            "template": " {{ .HEAD }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if gt .StashCount 0 }} \uf692 {{ .StashCount }}{{ end }} "
+            "fetch_status": true
           },
           "style": "powerline",
+          "template": " {{ .HEAD }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if gt .StashCount 0 }} \uf692 {{ .StashCount }}{{ end }} ",
           "type": "git"
         },
         {
@@ -52,10 +50,10 @@
           "foreground": "#242424",
           "powerline_symbol": "\ue0b0",
           "properties": {
-            "always_enabled": true,
-            "template": " \ufc8d "
+            "always_enabled": true
           },
           "style": "powerline",
+          "template": " \ufc8d ",
           "type": "exit"
         }
       ],
@@ -71,10 +69,10 @@
           "powerline_symbol": "\ue0b2",
           "properties": {
             "display_mode": "context",
-            "fetch_virtual_env": true,
-            "template": " \ue235 {{ .Venv }} "
+            "fetch_virtual_env": true
           },
           "style": "powerline",
+          "template": " \ue235 {{ .Venv }} ",
           "type": "python"
         }
       ],
@@ -86,18 +84,14 @@
       "segments": [
         {
           "foreground": "#FFD700",
-          "properties": {
-            "template": " \u26a1 "
-          },
           "style": "plain",
+          "template": " \u26a1 ",
           "type": "root"
         },
         {
           "foreground": "#f1184c",
-          "properties": {
-            "template": "🚀 "
-          },
           "style": "plain",
+          "template": "🚀 ",
           "type": "text"
         }
       ],
@@ -105,5 +99,5 @@
     }
   ],
   "final_space": true,
-  "version": 1
+  "version": 2
 }
