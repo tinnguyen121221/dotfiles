@@ -34,3 +34,8 @@ set showmode
 set title
 " Show the (partial) command as it’s being typed
 set showcmd
+" Disable beep and flash
+set noerrorbells visualbell t_vb=
+if has('autocmd')
+  autocmd GUIEnter * set visualbell t_vb=
+endif
