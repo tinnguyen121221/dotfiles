@@ -14,7 +14,7 @@ backupAndLink(){
 
 backupAndLink .zshrc
 backupAndLink .vimrc
-backupAndLink .iterm2.omp.json
+backupAndLink .mytheme.omp.json
 
 sudo apt-get update
 
