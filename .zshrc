@@ -100,8 +100,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # Wsl aliases
-alias code="code --remote wsl+$WSL_DISTRO_NAME"
-alias e="explorer.exe"
+# alias code="code --remote wsl+$WSL_DISTRO_NAME"
+# alias e="explorer.exe"
 #
 #
 eval "$(oh-my-posh --init --shell zsh --config ~/.iterm2.omp.json)"
