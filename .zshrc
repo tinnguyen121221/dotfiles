@@ -104,4 +104,4 @@ source $ZSH/oh-my-zsh.sh
 # alias e="explorer.exe"
 #
 #
-eval "$(oh-my-posh --init --shell zsh --config ~/.iterm2.omp.json)"
+eval "$(oh-my-posh --init --shell zsh --config ~/.mytheme.omp.json)"
