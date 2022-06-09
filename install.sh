@@ -1,20 +1,26 @@
 #!/usr/bin/sh
 
 backupAndLink(){
-    filename=$1;
-    path=~/$filename;
+    name=$1;
+    path=~/$name;
 
     if [ -f $path ]; then
         echo "Moving $path to $path.bak"
         mv $path $path.bak
     fi
 
-    ln -sv "${PWD}/$filename" $path
+    if [ -d $path ]; then
+        echo "Moving $path to $path.bak"
+        mv $path $path.bak
+    fi
+
+    ln -sv "${PWD}/$name" $path
 }
 
 backupAndLink .zshrc
 backupAndLink .vimrc
 backupAndLink .mytheme.omp.json
+backupAndLink .zfunc
 
 sudo apt-get update
 
