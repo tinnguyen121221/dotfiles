@@ -103,5 +103,9 @@ source $ZSH/oh-my-zsh.sh
 # alias code="code --remote wsl+$WSL_DISTRO_NAME"
 # alias e="explorer.exe"
 #
+# Load custom functions
+for file in ~/.zfunc/**; do
+  autoload $file;
+done
 #
 eval "$(oh-my-posh --init --shell zsh --config ~/.mytheme.omp.json)"
