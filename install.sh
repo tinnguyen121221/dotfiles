@@ -38,3 +38,6 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 
 # Change default shell
 chsh -s $(which zsh)
+
+# run zsh
+exec zsh -l
