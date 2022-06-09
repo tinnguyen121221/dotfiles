@@ -36,5 +36,4 @@ cd "$EXTRACTED_FOLDER"
 make
 sudo make altinstall
 
-# which python3.#
-# update-alternative --install /usr/bin/python python $(which python3.#) <priority>
+print "Python $VERSION installed, run `use-python 3.X` to use it"
