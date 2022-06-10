@@ -5,6 +5,12 @@
       "alignment": "left",
       "segments": [
         {
+          "type": "python",
+          "style": "plain",
+          "foreground": "#66ff00",
+          "template": "{{ if .Venv }}({{ .Venv }}) {{ end }}"
+        },
+        {
           "foreground": "#17bebb",
           "style": "plain",
           "template": "{{ .UserName }} ",
