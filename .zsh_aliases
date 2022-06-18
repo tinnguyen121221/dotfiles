@@ -12,6 +12,11 @@ then
     alias cat="bat"
 fi
 
+if [[ -x "$(command -v rg)" ]]
+then
+    alias grep="rg"
+fi
+
 
 if [[ -x "$(command -v wsl.exe)" ]]
 then
