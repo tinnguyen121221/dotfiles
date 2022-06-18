@@ -1,7 +1,7 @@
 if [[ -x "$(command -v exa)" ]]
 then
-    alias ls="exa --all --long --icons --git-ignore"
-    alias tree="exa --tree --all --icons --no-user --no-permissions --no-time --no-filesize --git-ignore -I '.git'"
+    alias ls="exa --long --icons --git-ignore"
+    alias tree="exa --tree --icons --no-user --no-permissions --no-time --no-filesize --git-ignore -I '.git'"
 fi
 
 
