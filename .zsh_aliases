@@ -1,0 +1,12 @@
+if [[ -x "$(command -v exa)" ]]
+then
+    alias ls="exa --all --long --icons --git-ignore"
+    alias tree="exa --tree --all --icons --no-user --no-permissions --no-time --no-filesize --git-ignore -I '.git'"
+fi
+
+
+if [[ -x "$(command -v wsl.exe)" ]]
+then
+    alias e="explorer.exe"
+    alias notepad="notepad.exe"
+fi
