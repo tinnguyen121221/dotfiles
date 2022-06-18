@@ -2,7 +2,8 @@
 
 install_packages() {
     local packages=(
-        build-essential
+        bat
+				build-essential
         curl
         cmake
         file
