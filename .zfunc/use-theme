@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# use-theme https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/agnoster.omp.json
+
+if [ $# -eq 0 ]; then
+    echo "Missing theme URL"
+    return
+fi
+
+wget $1 -O ~/.mytheme.omp.json
