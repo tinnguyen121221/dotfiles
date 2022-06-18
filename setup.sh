@@ -99,6 +99,12 @@ install_ripgrep() {
 		rm -f /tmp/ripgrep.deb
 }
 
+install_bat_extras() {
+    rm -rf ~/.bat-extras
+    git clone https://github.com/eth-p/bat-extras ~/.bat-extras
+    sudo ~/.bat-extras/build.sh --install
+}
+
 backup_and_link() {
     
     if [ -f $2 ] || [ -d $2 ]; then
@@ -121,6 +127,7 @@ main() {
     install_neovim
     install_exa
     install_ripgrep
+    install_bat_extras
 
     mkdir -p ~/.backup
     mkdir -p ~/.config/nvim
