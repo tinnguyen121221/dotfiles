@@ -84,6 +84,11 @@ install_neovim() {
     sudo update-alternatives --config editor
 }
 
+install_vim_plug() {
+    sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+}
+
 install_exa() {
     local EXA_VERION="v0.10.1"
     mkdir -p /tmp && wget https://github.com/ogham/exa/releases/download/${EXA_VERION}/exa-linux-x86_64-${EXA_VERION}.zip -O /tmp/exa.zip
@@ -125,6 +130,7 @@ main() {
     install_nvm
     install_poetry
     install_neovim
+		install_vim_plug
     install_exa
     install_ripgrep
     install_bat_extras
