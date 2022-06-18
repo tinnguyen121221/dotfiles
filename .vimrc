@@ -1,3 +1,4 @@
+set guicursor=
 set background=dark
 
 set wildmenu
