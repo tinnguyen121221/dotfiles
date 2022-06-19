@@ -130,7 +130,7 @@ main() {
 
     install_packages
     install_git
-    install_brew
+    # install_brew
     install_ohmyzsh
     install_ohmyposh
     install_zsh_plugins
