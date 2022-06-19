@@ -20,6 +20,9 @@ fi
 
 if [[ -x "$(command -v wsl.exe)" ]]
 then
+    if [[ -x "$(command -v subl.exe)" ]]; then
+        alias subl="subl.exe"
+    fi
     alias e="explorer.exe"
     alias notepad="notepad.exe"
 fi
