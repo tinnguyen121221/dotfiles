@@ -2,11 +2,12 @@ call plug#begin()
 
 Plug 'editorconfig/editorconfig-vim'
 Plug 'preservim/nerdtree'
+Plug 'ryanoasis/vim-devicons'
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 
 call plug#end()
 
 set guicursor=
-set background=dark
 
 set wildmenu
 
@@ -24,6 +25,7 @@ set modelines=4
 set number
 " Enable syntax highlighting
 syntax on
+colorscheme tokyonight
 " Highlight current line
 set cursorline
 " Make tabs as wide as two spaces
