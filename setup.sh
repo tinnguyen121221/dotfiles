@@ -4,11 +4,14 @@ install_packages() {
     local packages=(
         bat
         build-essential
+        ca-certificates
         curl
         cmake
         file
         g++
         gcc
+        gnupg
+        lsb-release
         procps
         python3
         python3-pip
@@ -99,9 +102,9 @@ install_exa() {
 
 install_ripgrep() {
     local RIPGREP_VERSION="13.0.0"
-		mkdir -p /tmp && wget https://github.com/BurntSushi/ripgrep/releases/download/${RIPGREP_VERSION}/ripgrep_${RIPGREP_VERSION}_amd64.deb -O /tmp/ripgrep.deb
-		sudo dpkg -i /tmp/ripgrep.deb
-		rm -f /tmp/ripgrep.deb
+    mkdir -p /tmp && wget https://github.com/BurntSushi/ripgrep/releases/download/${RIPGREP_VERSION}/ripgrep_${RIPGREP_VERSION}_amd64.deb -O /tmp/ripgrep.deb
+    sudo dpkg -i /tmp/ripgrep.deb
+    rm -f /tmp/ripgrep.deb
 }
 
 install_bat_extras() {
@@ -115,6 +118,18 @@ install_gh() {
     echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
     sudo apt update
     sudo apt install gh
+}
+
+install_docker() {
+    sudo apt-get remove docker docker-engine docker.io containerd runc
+    sudo apt-get update
+    sudo mkdir -p /etc/apt/keyrings
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+    echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+    sudo apt-get update
+    sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 }
 
 backup_and_link() {
@@ -137,11 +152,12 @@ main() {
     install_nvm
     install_poetry
     install_neovim
-		install_vim_plug
+    install_vim_plug
     install_exa
     install_ripgrep
     install_bat_extras
     install_gh
+    install_docker
 
     mkdir -p ~/.backup
     mkdir -p ~/.config/nvim
