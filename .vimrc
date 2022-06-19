@@ -1,3 +1,10 @@
+call plug#begin()
+
+Plug 'editorconfig/editorconfig-vim'
+Plug 'preservim/nerdtree'
+
+call plug#end()
+
 set guicursor=
 set background=dark
 
@@ -41,8 +48,11 @@ if has('autocmd')
   autocmd GUIEnter * set visualbell t_vb=
 endif
 
-call plug#begin()
-Plug 'editorconfig/editorconfig-vim'
-
-
-call plug#end()
+"NERDTree config
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+autocmd VimEnter * NERDTree | wincmd p
+" Exit Vim if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
