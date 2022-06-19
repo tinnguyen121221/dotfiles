@@ -28,8 +28,6 @@ syntax on
 set cursorline
 " Make tabs as wide as two spaces
 set tabstop=2
-" Highlight searches
-set hlsearch
 " Ignore case of searches
 set ignorecase
 " Highlight dynamically as pattern is typed
@@ -44,6 +42,7 @@ set title
 set showcmd
 " Disable beep and flash
 set noerrorbells visualbell t_vb=
+set nohlsearch
 if has('autocmd')
   autocmd GUIEnter * set visualbell t_vb=
 endif
