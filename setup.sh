@@ -110,6 +110,13 @@ install_bat_extras() {
     sudo ~/.bat-extras/build.sh --install
 }
 
+install_gh() {
+    curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+    sudo apt update
+    sudo apt install gh
+}
+
 backup_and_link() {
     
     if [ -f $2 ] || [ -d $2 ]; then
@@ -134,6 +141,7 @@ main() {
     install_exa
     install_ripgrep
     install_bat_extras
+    install_gh
 
     mkdir -p ~/.backup
     mkdir -p ~/.config/nvim
