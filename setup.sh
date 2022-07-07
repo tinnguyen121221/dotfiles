@@ -141,8 +141,12 @@ install_fzf() {
     sudo apt-get install fzf -y
 }
 
+install_pyright() {
+    npm install --location=global pyright
+}
+
 backup_and_link() {
-    
+
     if [ -f $2 ] || [ -d $2 ]; then
         mv -f $2 ~/.backup
     fi
@@ -169,6 +173,7 @@ main() {
     install_docker
     install_fd
     install_fzf
+    install_pyright
 
     mkdir -p ~/.backup
     mkdir -p ~/.config/nvim
