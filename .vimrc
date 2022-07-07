@@ -44,6 +44,9 @@ set title
 set showcmd
 " Disable beep and flash
 set noerrorbells visualbell t_vb=
+" Move between tabs
+nnoremap <C-Left> :tabprevious<CR>
+nnoremap <C-Right> :tabnext<CR>
 set nohlsearch
 if has('autocmd')
   autocmd GUIEnter * set visualbell t_vb=
@@ -52,7 +55,7 @@ endif
 "NERDTree config
 nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-b> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 autocmd VimEnter * NERDTree | wincmd p
 " Exit Vim if NERDTree is the only window remaining in the only tab.
