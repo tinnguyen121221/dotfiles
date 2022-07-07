@@ -78,6 +78,9 @@ source $ZSH/oh-my-zsh.sh
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
+# Setting fd as the default source for fzf
+export FZF_DEFAULT_COMMAND="fd --type f"
+
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 

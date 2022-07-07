@@ -132,6 +132,15 @@ install_docker() {
     sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 }
 
+install_fd() {
+    sudo apt install fd-find -y
+    ln -s $(which fdfind) ~/.local/bin/fd
+}
+
+install_fzf() {
+    sudo apt-get install fzf -y
+}
+
 backup_and_link() {
     
     if [ -f $2 ] || [ -d $2 ]; then
@@ -158,6 +167,8 @@ main() {
     install_bat_extras
     install_gh
     install_docker
+    install_fd
+    install_fzf
 
     mkdir -p ~/.backup
     mkdir -p ~/.config/nvim
