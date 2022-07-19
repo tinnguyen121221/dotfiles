@@ -119,6 +119,7 @@ let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'javascript': ['eslint', 'prettier'],
 \   'vue': ['prettier'],
+\   'php': ['php_cs_fixer', 'phpcbf', 'pint'],
 \   'python': ['black', 'isort'],
 \}
 let g:ale_linters = {
