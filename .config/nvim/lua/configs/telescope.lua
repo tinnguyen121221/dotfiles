@@ -11,6 +11,7 @@ end
 
 local map = require("utils").map
 map('n', '<Leader>ff', ':Telescope find_files<cr>')
+map('n', '<Leader>FF', ':Telescope find_files hidden=true<cr>')
 map('n', '<Leader>fg', ':Telescope live_grep<cr>')
 map('n', '<Leader>fb', ':Telescope buffers<cr>')
 map('n', '<Leader>fh', ':Telescope help_tags<cr>')
