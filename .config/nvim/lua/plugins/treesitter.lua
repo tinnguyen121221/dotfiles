@@ -1,10 +1,10 @@
 require'nvim-treesitter.configs'.setup {
 	autotag = {
-		  enable = true,
-	  },
-	  indent = {
-		  enable = true,
-	  },
+		enable = true,
+	},
+	indent = {
+		enable = true,
+	},
 	-- A list of parser names, or "all"
 	ensure_installed = { "javascript", "python", "lua", "php", "html", "yaml", "json" },
 

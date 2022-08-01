@@ -3,8 +3,14 @@
 --]]
 
 require("mason-lspconfig").setup({
-	-- .py, .php, .lua
-	ensure_installed = { "pyright", "intelephense", "sumneko_lua", "emmet-ls" },
+	ensure_installed = {
+		"yaml-language-server",
+		"pyright",
+		"intelephense",
+		"sumneko_lua",
+		"emmet-ls",
+		"grammarly-languageserver",
+	},
 
 	automatic_installation = true,
 })
