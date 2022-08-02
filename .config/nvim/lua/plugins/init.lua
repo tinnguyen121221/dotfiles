@@ -10,7 +10,7 @@ local fn = vim.fn
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
 	packer_bootstrap =
-	fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
+		fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
 	vim.cmd([[packadd packer.nvim]])
 end
 
@@ -19,33 +19,32 @@ return require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
 
 	-- Gruvbox theme
-	use { "ellisonleao/gruvbox.nvim", config = require 'plugins.gruvbox' }
+	use({ "ellisonleao/gruvbox.nvim", config = require("plugins.gruvbox") })
 	-- require("plugins.gruvbox")
 
 	-- Lualine
-	use { "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons", opt = true },
-		config = require "plugins.lualine" }
+	use({
+		"nvim-lualine/lualine.nvim",
+		requires = { "kyazdani42/nvim-web-devicons", opt = true },
+		config = require("plugins.lualine"),
+	})
 	-- require("plugins.lualine")
 
 	-- Telescope
 	use({
 		"nvim-telescope/telescope.nvim",
 		requires = { { "nvim-lua/plenary.nvim" } },
-		config = require "plugins.telescope",
+		config = require("plugins.telescope"),
 	})
-	-- require("plugins.telescope")
 
 	--Auto pairs
-	use("windwp/nvim-autopairs")
-	require("plugins.autopairs")
+	use({ "windwp/nvim-autopairs", config = require("plugins.autopairs") })
 
 	--Commentary
-	use("tpope/vim-commentary")
-	require("plugins.vim-commentary")
+	use({ "tpope/vim-commentary", config = require("plugins.vim-commentary") })
 
 	-- Floaterm
-	use("voldikss/vim-floaterm")
-	require("plugins.floaterm")
+	use({ "voldikss/vim-floaterm", config = require("plugins.floaterm") })
 
 	-- Tree sitter
 	use({
@@ -53,8 +52,8 @@ return require("packer").startup(function(use)
 		run = function()
 			require("nvim-treesitter.install").update({ with_sync = true })
 		end,
+		config = require("plugins.treesitter"),
 	})
-	require("plugins.treesitter")
 
 	-- Nvim cmp
 	use({
@@ -65,8 +64,8 @@ return require("packer").startup(function(use)
 		"hrsh7th/nvim-cmp",
 		"hrsh7th/cmp-vsnip",
 		"hrsh7th/vim-vsnip",
+		config = require("plugins.cmp"),
 	})
-	require("plugins.cmp")
 
 	-- Mason lsp config
 	use({
@@ -79,8 +78,7 @@ return require("packer").startup(function(use)
 	require("plugins.lsp")
 
 	-- Null-ls
-	use("jose-elias-alvarez/null-ls.nvim")
-	require("plugins.null-ls")
+	use({"jose-elias-alvarez/null-ls.nvim", config = require("plugins.null-ls")})
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
