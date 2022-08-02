@@ -55,25 +55,27 @@ return require("packer").startup(function(use)
 		config = require("plugins.treesitter"),
 	})
 
-	-- Nvim cmp
+	-- Mason, lsp, cmp config
+	use({ "williamboman/mason.nvim", config = require("plugins.mason") })
+	use({ "williamboman/mason-lspconfig.nvim", config = require("plugins.mason-lsp") })
 	use({
-		"hrsh7th/cmp-nvim-lsp",
-		"hrsh7th/cmp-buffer",
-		"hrsh7th/cmp-path",
-		"hrsh7th/cmp-cmdline",
-		"hrsh7th/nvim-cmp",
-		"hrsh7th/cmp-vsnip",
-		"hrsh7th/vim-vsnip",
-		config = require("plugins.cmp"),
+		"neovim/nvim-lspconfig",
+		requires = {
+			{
+				"hrsh7th/cmp-nvim-lsp",
+				"hrsh7th/cmp-buffer",
+				"hrsh7th/cmp-path",
+				"hrsh7th/cmp-cmdline",
+				"hrsh7th/nvim-cmp",
+				"hrsh7th/cmp-vsnip",
+				"hrsh7th/vim-vsnip",
+			},
+		},
+		config = require("plugins.lsp"),
 	})
 
-	-- Mason lsp config
-	use({ "williamboman/mason.nvim", config = require('plugins.mason')})
-	use({ "williamboman/mason-lspconfig.nvim", config = require('plugins.mason-lsp')})
-	use({ "neovim/nvim-lspconfig.nvim", config = require('plugins.lsp')})
-
 	-- Null-ls
-	use({"jose-elias-alvarez/null-ls.nvim", config = require("plugins.null-ls")})
+	use({ "jose-elias-alvarez/null-ls.nvim", config = require("plugins.null-ls") })
 
 	-- Automatically set up your configuration after cloning packer.nvim
 	-- Put this at the end after all plugins
