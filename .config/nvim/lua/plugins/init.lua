@@ -68,14 +68,9 @@ return require("packer").startup(function(use)
 	})
 
 	-- Mason lsp config
-	use({
-		"williamboman/mason.nvim",
-		"williamboman/mason-lspconfig.nvim",
-		"neovim/nvim-lspconfig",
-	})
-	-- require("plugins.mason")
-	-- require("plugins.mason-lsp")
-	-- require("plugins.lsp")
+	use({ "williamboman/mason.nvim", config = require('plugins.mason')})
+	use({ "williamboman/mason-lspconfig.nvim", config = require('plugins.mason-lsp')})
+	use({ "neovim/nvim-lspconfig.nvim", config = require('plugins.lsp')})
 
 	-- Null-ls
 	use({"jose-elias-alvarez/null-ls.nvim", config = require("plugins.null-ls")})
