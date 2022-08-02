@@ -73,9 +73,9 @@ return require("packer").startup(function(use)
 		"williamboman/mason-lspconfig.nvim",
 		"neovim/nvim-lspconfig",
 	})
-	require("plugins.mason")
-	require("plugins.mason-lsp")
-	require("plugins.lsp")
+	-- require("plugins.mason")
+	-- require("plugins.mason-lsp")
+	-- require("plugins.lsp")
 
 	-- Null-ls
 	use({"jose-elias-alvarez/null-ls.nvim", config = require("plugins.null-ls")})
