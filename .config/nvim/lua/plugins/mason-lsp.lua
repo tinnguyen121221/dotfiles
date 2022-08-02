@@ -10,7 +10,6 @@ return function()
 			"intelephense",
 			"sumneko_lua",
 			"emmet-ls",
-			"grammarly-languageserver",
 		},
 
 		automatic_installation = true,

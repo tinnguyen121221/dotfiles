@@ -2,12 +2,11 @@
 --
 --]]
 
-return function ()
-
+return function()
 	local vim = vim
-	require"plugins.cmp"()
+	require("plugins.cmp")()
 	local lspconfig = require("lspconfig")
-	local servers = { "eslint", "pyright", "intelephense", "sumneko_lua", "bashls", "emmet_ls", "yamlls", "grammarly", }
+	local servers = { "eslint", "pyright", "intelephense", "sumneko_lua", "bashls", "emmet_ls", "yamlls" }
 	local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 	local on_attach = function(client, bufnr)
@@ -26,7 +25,7 @@ return function ()
 		vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, bufopts)
 		vim.keymap.set("n", "<space>wl", function()
 			print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-			end, bufopts)
+		end, bufopts)
 		vim.keymap.set("n", "<space>D", vim.lsp.buf.type_definition, bufopts)
 		vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, bufopts)
 		vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, bufopts)
