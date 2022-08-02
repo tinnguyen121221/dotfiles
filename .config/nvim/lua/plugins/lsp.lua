@@ -6,7 +6,7 @@ return function()
 	local vim = vim
 	require("plugins.cmp")()
 	local lspconfig = require("lspconfig")
-	local servers = { "eslint", "pyright", "intelephense", "sumneko_lua", "bashls", "emmet_ls", "yamlls" }
+	local servers = { "pyright", "intelephense", "sumneko_lua", "bashls", "emmet_ls", "yamlls", "tsserver" }
 	local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 	local on_attach = function(client, bufnr)

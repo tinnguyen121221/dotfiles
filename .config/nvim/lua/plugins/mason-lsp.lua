@@ -8,8 +8,10 @@ return function()
 			"yaml-language-server",
 			"pyright",
 			"intelephense",
+			"typescript-language-server",
 			"sumneko_lua",
 			"emmet-ls",
+			"bash-language-server"
 		},
 
 		automatic_installation = true,
