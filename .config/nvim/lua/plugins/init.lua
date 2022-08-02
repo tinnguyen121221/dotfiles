@@ -10,7 +10,7 @@ local fn = vim.fn
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 if fn.empty(fn.glob(install_path)) > 0 then
 	packer_bootstrap =
-		fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
+	fn.system({ "git", "clone", "--depth", "1", "https://github.com/wbthomason/packer.nvim", install_path })
 	vim.cmd([[packadd packer.nvim]])
 end
 
@@ -19,22 +19,21 @@ return require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
 
 	-- Gruvbox theme
-	use("ellisonleao/gruvbox.nvim")
-	require("plugins.gruvbox")
+	use { "ellisonleao/gruvbox.nvim", config = require 'plugins.gruvbox' }
+	-- require("plugins.gruvbox")
 
 	-- Lualine
-	use({
-		"nvim-lualine/lualine.nvim",
-		requires = { "kyazdani42/nvim-web-devicons", opt = true },
-	})
-	require("plugins.lualine")
+	use { "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons", opt = true },
+		config = require "plugins.lualine" }
+	-- require("plugins.lualine")
 
 	-- Telescope
 	use({
 		"nvim-telescope/telescope.nvim",
 		requires = { { "nvim-lua/plenary.nvim" } },
+		config = require "plugins.telescope",
 	})
-	require("plugins.telescope")
+	-- require("plugins.telescope")
 
 	--Auto pairs
 	use("windwp/nvim-autopairs")
@@ -57,16 +56,6 @@ return require("packer").startup(function(use)
 	})
 	require("plugins.treesitter")
 
-	-- Mason lsp config
-	use({
-		"williamboman/mason.nvim",
-		"williamboman/mason-lspconfig.nvim",
-		"neovim/nvim-lspconfig",
-	})
-	require("plugins.mason")
-	require("plugins.mason-lsp")
-	require("plugins.lsp")
-
 	-- Nvim cmp
 	use({
 		"hrsh7th/cmp-nvim-lsp",
@@ -78,6 +67,16 @@ return require("packer").startup(function(use)
 		"hrsh7th/vim-vsnip",
 	})
 	require("plugins.cmp")
+
+	-- Mason lsp config
+	use({
+		"williamboman/mason.nvim",
+		"williamboman/mason-lspconfig.nvim",
+		"neovim/nvim-lspconfig",
+	})
+	require("plugins.mason")
+	require("plugins.mason-lsp")
+	require("plugins.lsp")
 
 	-- Null-ls
 	use("jose-elias-alvarez/null-ls.nvim")
