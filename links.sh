@@ -11,9 +11,7 @@ backup_and_link() {
 
 
 mkdir -p ~/.backup
-mkdir -p ~/.config
 backup_and_link "${PWD}/.zshrc" ~/.zshrc
 backup_and_link "${PWD}/.zsh_aliases" ~/.zsh_aliases
-backup_and_link "${PWD}/.config/nvim" ~/.config/nvim
 backup_and_link "${PWD}/.mytheme.omp.json" ~/.mytheme.omp.json
 backup_and_link "${PWD}/.zfunc/" ~/.zfunc

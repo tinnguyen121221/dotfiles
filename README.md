@@ -1,14 +1,3 @@
-# Personal dotfiles
+# Dotfiles
 
-## Setup
-
-```shell
-
-./install/all.sh
-
-chsh -s $(which zsh)
-exec zsh
-
-./config/all.sh
-
-```
+My dotfiles in Ubuntu-20.04 WSL2.
