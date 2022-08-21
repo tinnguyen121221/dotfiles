@@ -47,8 +47,8 @@ commons=(
 
 	sudo apt-get update
 	# sudo apt-get install -y "${commons[@]}"
-	for pkg in ${commons[@]}; do
-					sudo apt-get install $pkg -y
+	for pkg in "${commons[@]}"; do
+					sudo apt-get install "$pkg" -y
 	done
 	sudo apt-get autoremove -y
 	sudo apt-get autoclean
