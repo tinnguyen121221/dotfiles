@@ -106,7 +106,6 @@ for file in ~/.zfunc/**; do
   autoload $file;
 done
 #
-eval "$(oh-my-posh --init --shell zsh --config ~/.mytheme.omp.json)"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
