@@ -1,0 +1,1 @@
+ps -ef | sed 1d | fzf -m | awk '{print $2}'

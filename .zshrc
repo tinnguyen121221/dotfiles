@@ -101,3 +101,7 @@ if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
+# Load custom functions
+for file in ~/.zfunc/**; do
+  autoload $file;
+done
