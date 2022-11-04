@@ -11,18 +11,12 @@
 					"template": "( \uE235 {{ .Full }} ) "
 				},
 				{
-					"foreground": "#FFBD00",
-					"style": "plain",
-					"template": "{{ .UserName }}'s ",
-					"type": "session"
-				},
-				{
 					"foreground": "#00C6F7",
-					"properties": {
-						"style": "folder"
-					},
 					"style": "plain",
-					"template": "{{ .Path }}/ ",
+					"properties": {
+						"style": "full"
+					},
+					"template": "{{ .Path }} ",
 					"type": "path"
 				},
 				{
