@@ -5,6 +5,12 @@
 			"alignment": "left",
 			"segments": [
 				{
+					"type": "python",
+					"style": "diamond",
+					"foreground": "#366994",
+					"template": "( \uE235 {{ .Full }} ) "
+				},
+				{
 					"foreground": "#FFBD00",
 					"style": "plain",
 					"template": "{{ .UserName }}'s ",
