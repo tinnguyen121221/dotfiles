@@ -100,3 +100,5 @@ export FZF_DEFAULT_COMMAND="fd --type f"
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
+
+eval "$(oh-my-posh init zsh --config ~/.mytheme.omp.json)"
