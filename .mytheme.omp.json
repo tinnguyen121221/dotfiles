@@ -11,6 +11,12 @@
 					"template": "( \uE235 {{ .Full }} ) "
 				},
 				{
+					"type": "php",
+					"style": "diamond",
+					"foreground": "#366994",
+					"template": " \ue73d {{ .Full }} "
+				},
+				{
 					"foreground": "#00C6F7",
 					"style": "plain",
 					"properties": {
