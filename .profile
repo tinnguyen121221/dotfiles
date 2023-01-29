@@ -18,7 +18,7 @@ fi
 
 # set PATH so it includes user's private bin if it exists
 # if [ -d "$HOME/bin" ] ; then
-PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+PATH="$HOME/bin:$HOME/.local/bin:$PATH:$HOME/.config/composer/vendor/bin"
 # fi
 
 export NVM_DIR="$HOME/.nvm"
