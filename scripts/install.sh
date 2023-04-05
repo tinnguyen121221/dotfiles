@@ -80,7 +80,7 @@ install_nvm() {
 
 install_neovim_config() {
   echo "Installing NeoVim config..."
-  git clone https://github.com/waltkra/neovim-config $HOME/.config/nvim
+  git clone https://github.com/tinnguyentg/neovim-config $HOME/.config/nvim
 }
 
 install_gh_cli() {
