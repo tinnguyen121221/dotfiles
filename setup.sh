@@ -14,6 +14,7 @@ install_neovim
 install_neovim_config
 install_gh_cli
 install_nvm
+install_doctl
 install_package_list
 
 link_dot_files

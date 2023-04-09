@@ -93,6 +93,16 @@ install_gh_cli() {
   gh config set editor nvim
 }
 
+install_doctl() {
+  echo "Installing doctl..."
+  tag=1.93.1
+  name="doctl-$tag-linux-$(dpkg --print-architecture).tar.gz"
+  wget https://github.com/digitalocean/doctl/releases/download/v$tag/$name -O /tmp/$name
+  tar -xzf /tmp/$name -C /tmp
+  sudo mv /tmp/doctl /usr/local/bin
+  rm /tmp/$name
+}
+
 install_package_list() {
 	if [ -f package-list.txt ]; then
 		echo "Installing package list..."
