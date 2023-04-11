@@ -19,3 +19,8 @@ if command_exists bat; then
 	}
 	alias gd='batdiff'
 fi
+
+if command_exists wsl.exe && [ -n "$WSL_DISTRO_NAME" ]; then
+	alias e='explorer.exe'
+	alias winget='winget.exe'
+fi
