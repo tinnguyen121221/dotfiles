@@ -64,9 +64,10 @@ install_bat() {
 
 install_neovim() {
   echo "Installing NeoVim..."
-  wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux64.deb -O /tmp/nvim-linux64.deb
-  sudo dpkg -i /tmp/nvim-linux64.deb
-  rm /tmp/nvim-linux64.deb
+  name="nvim.appimage"
+  wget https://github.com/neovim/neovim/releases/download/stable/$name -O /tmp/$name
+  chmod u+x /tmp/$name
+  sudo mv /tmp/$name /usr/bin/nvim
 
   sudo update-alternatives --install $(which vi) vi /usr/bin/nvim 60
   sudo update-alternatives --install $(which vim) vim /usr/bin/nvim 60
