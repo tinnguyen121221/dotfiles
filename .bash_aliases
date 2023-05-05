@@ -23,4 +23,9 @@ fi
 if command_exists wsl.exe && [ -n "$WSL_DISTRO_NAME" ]; then
 	alias e='explorer.exe'
 	alias winget='winget.exe'
+	sudo touch /usr/bin/powershell
+	sudo chmod +x /usr/bin/powershell
+	echo 'powershell.exe -ExecutionPolicy Bypass $@' | sudo tee /usr/bin/powershell > /dev/null
+	export WINHOME="$(wslpath "$(wslvar USERPROFILE)")"
+	export DESKTOP="$WINHOME/Desktop"
 fi
