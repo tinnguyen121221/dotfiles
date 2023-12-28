@@ -22,6 +22,7 @@ fi
 if command_exists wsl.exe && [ -n "$WSL_DISTRO_NAME" ]; then
 	alias e='explorer.exe'
 	alias winget='winget.exe'
+	alias wsl='wsl.exe'
 	export WINHOME="$(wslpath "$(wslvar USERPROFILE)")"
 	export DESKTOP="$WINHOME/Desktop"
 fi
