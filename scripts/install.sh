@@ -21,7 +21,7 @@ install_oh_my_posh() {
 
 install_fzf() {
   echo "Installing FZF..."
-  tag=0.38.0
+  tag=0.44.1
   name="fzf-$tag-linux_$(dpkg --print-architecture).tar.gz"
   wget https://github.com/junegunn/fzf/releases/download/$tag/fzf-$tag-linux_$(dpkg --print-architecture).tar.gz -O /tmp/$name
   tar -xzf /tmp/$name -C /tmp
@@ -36,7 +36,7 @@ install_rg() {
 
 install_fd() {
   echo "Installing fd..."
-  tag=8.7.0
+  tag=9.0.0
   name="fd_${tag}_$(dpkg --print-architecture).deb"
   wget https://github.com/sharkdp/fd/releases/download/v$tag/$name -O /tmp/$name
   sudo dpkg -i /tmp/$name
@@ -45,7 +45,7 @@ install_fd() {
 
 install_exa() {
   echo "Installing exa..."
-  tag=0.10.0
+  tag=0.10.1
   name="exa-linux-x86_64-v${tag}.zip"
   wget https://github.com/ogham/exa/releases/download/v$tag/$name -O /tmp/$name
   unzip -o /tmp/$name -d /tmp/exa
@@ -55,7 +55,7 @@ install_exa() {
 
 install_bat() {
   echo "Installing bat..."
-  tag=0.23.0
+  tag=0.24.0
   name="bat_${tag}_$(dpkg --print-architecture).deb"
   wget https://github.com/sharkdp/bat/releases/download/v$tag/$name -O /tmp/$name
   sudo dpkg -i /tmp/$name
@@ -86,7 +86,7 @@ install_neovim_config() {
 
 install_gh_cli() {
   echo "Installing Github CLI..."
-  tag=2.25.1
+  tag=2.40.1
   name="gh_${tag}_linux_$(dpkg --print-architecture).deb"
   wget https://github.com/cli/cli/releases/download/v$tag/$name -O /tmp/$name
   sudo dpkg -i /tmp/$name
@@ -94,20 +94,10 @@ install_gh_cli() {
   gh config set editor nvim
 }
 
-install_doctl() {
-  echo "Installing doctl..."
-  tag=1.93.1
-  name="doctl-$tag-linux-$(dpkg --print-architecture).tar.gz"
-  wget https://github.com/digitalocean/doctl/releases/download/v$tag/$name -O /tmp/$name
-  tar -xzf /tmp/$name -C /tmp
-  sudo mv /tmp/doctl /usr/local/bin
-  rm /tmp/$name
-}
-
 install_package_list() {
-	if [ -f package-list.txt ]; then
+	if [ -f package_list.txt ]; then
 		echo "Installing package list..."
 		sudo apt-get update
-		sudo apt-get install -y $(cat package-list.txt)
+		sudo apt-get install -y $(cat package_list.txt)
 	fi
 }

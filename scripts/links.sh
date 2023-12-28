@@ -21,4 +21,7 @@ link_dot_files() {
 	fi
 	cp -n $PWD/.env.example $PWD/.env
 	ln -sf $PWD/.env $HOME/.env
+
+	mkdir -p $HOME/.functions
+	cp -r $PWD/.functions/* $HOME/.functions/
 }

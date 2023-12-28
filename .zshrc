@@ -70,7 +70,7 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions doctl)
+plugins=(git zsh-autosuggestions z)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -101,6 +101,8 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 source ~/.bash_aliases
 source ~/.env
+fpath=($fpath ~/.functions)
+autoload -Uz ~/.functions/*
 
 eval "$(oh-my-posh init zsh --config ~/.mytheme.omp.json)"
 
@@ -110,3 +112,5 @@ export NVM_DIR="$HOME/.nvm"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+export ODOO_DIR="/opt/odoo"

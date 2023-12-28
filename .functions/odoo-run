@@ -1,0 +1,5 @@
+PROJECT_NAME=$(basename ${1:-$PWD})
+PROJECT_DIR="$ODOO_DIR/workspace/$PROJECT_NAME"
+
+
+"$(odooenv $PROJECT_NAME)/bin/python" "$PROJECT_DIR/odoo-bin" -c "$(odoorc $PROJECT_NAME)"
