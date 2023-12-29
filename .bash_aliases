@@ -2,8 +2,6 @@ command_exists() {
   command -v "$@" >/dev/null 2>&1
 }
 
-alias wget='wget -O /tmp'
-
 if command_exists exa; then
 	alias ll="exa -lg --sort=modified --reverse --icons"
 	alias la="exa -lag --sort=modified --reverse --icons"

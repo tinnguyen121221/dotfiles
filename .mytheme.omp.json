@@ -5,6 +5,11 @@
       "alignment": "left",
       "segments": [
         {
+          "type": "python",
+          "style": "plain",
+          "template": "( {{ .Full }} ) "
+        },
+        {
           "foreground": "#1dd3b0",
           "style": "plain",
           "template": "{{ .UserName }}",

@@ -1,0 +1,9 @@
+PROJECT_NAME=$(basename ${1:-$PWD})
+PROJECT_DIR="$ODOO_DIR/workspace/$PROJECT_NAME"
+ODOO_BIN="$PROJECT_DIR/odoo-bin"
+ODOO_PATH="$PROJECT_DIR"
+if [[ ! -f "$ODOO_BIN" && -f "$PROJECT_DIR/odoo/odoo-bin" ]]; then
+	ODOO_PATH="$PROJECT_DIR/odoo"
+fi
+shift
+PYTHONPATH="$PYTHONPATH:$ODOO_PATH" "$(odooenv $PROJECT_NAME)/bin/python" "$(odoorc $PROJECT_NAME).py" -c "$(odoorc $PROJECT_NAME)" $@
