@@ -5,4 +5,5 @@ if [[ ! -f "$ODOO_BIN" && -f "$PROJECT_DIR/odoo/odoo-bin" ]]; then
     ODOO_BIN="$PROJECT_DIR/odoo/odoo-bin"
 fi
 shift
-"$(odooenv $PROJECT_NAME)/bin/python" "$ODOO_BIN" -c "$(odoorc $PROJECT_NAME)" $@
+"$(odooenv $PROJECT_NAME)/bin/python" "$ODOO_BIN" shell -c "$(odoorc $PROJECT_NAME)" --no-http $@
+
