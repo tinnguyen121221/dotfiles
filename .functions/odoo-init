@@ -1,6 +1,6 @@
 PROJECT_NAME=$(odoo-get-project-name $@)
 PROJECT_VENV=$(odoo-get-venv $PROJECT_NAME)
-ODOO_BIN=$(odoo-get-odoo-bin $PROJECT_NAME)
+PROJECT_DIR=$(odoo-get-project-dir $PROJECT_NAME)
 ODOO_CONFIG=$(odoorc $PROJECT_NAME)
 
 if [ -z "$PROJECT_VENV" ]; then
@@ -8,8 +8,8 @@ if [ -z "$PROJECT_VENV" ]; then
     return
 fi
 
-if [ -z "$ODOO_BIN" ]; then
-    echo "odoo-bin not found"
+if [ -z "$PROJECT_DIR" ]; then
+    echo "Project workspace not found"
     return
 fi
 
@@ -21,5 +21,4 @@ fi
 if [ "$1" = "$PROJECT_NAME" ]; then
     shift
 fi
-
-PYTHONPATH="$PYTHONPATH:/opt/odoo/odoo_utils" "$PROJECT_VENV/bin/python" "$ODOO_BIN" shell -c "$ODOO_CONFIG" --no-http $@
+ODOO_RC="$ODOO_CONFIG" PYTHONPATH="$PYTHONPATH:$PROJECT_DIR:/opt/odoo/odoo_utils" "$PROJECT_VENV/bin/python" "$ODOO_CONFIG.py" -c "$ODOO_CONFIG" $@

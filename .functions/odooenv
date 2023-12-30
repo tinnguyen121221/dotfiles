@@ -1,2 +1,0 @@
-PROJECT_NAME=$(basename ${1:-$PWD})
-echo "$ODOO_DIR/envs/$PROJECT_NAME"

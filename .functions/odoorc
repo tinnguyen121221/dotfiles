@@ -1,2 +1,2 @@
-PROJECT_NAME=$(basename ${1:-$PWD})
+PROJECT_NAME=$(odoo-get-project-name $@)
 echo "$ODOO_DIR/conf.d/$PROJECT_NAME"

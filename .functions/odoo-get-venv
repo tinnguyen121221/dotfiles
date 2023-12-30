@@ -1,0 +1,8 @@
+PROJECT_NAME=$(odoo-get-project-name $@)
+PROJECT_VENV_DIR="$ODOO_DIR/envs/$PROJECT_NAME"
+
+# If not PROJECT_VENV_DIR, return
+if [[ ! -d "$PROJECT_VENV_DIR" ]]; then
+    return
+fi
+echo "$PROJECT_VENV_DIR"

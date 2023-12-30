@@ -1,0 +1,26 @@
+PROJECT_NAME=$(odoo-get-project-name $@)
+PROJECT_VENV=$(odoo-get-venv $PROJECT_NAME)
+JUPYTER_VENV=$(odoo-get-venv jupyterlab)
+PROJECT_DIR=$(odoo-get-project-dir $PROJECT_NAME)
+ODOO_CONFIG=$(odoorc $PROJECT_NAME)
+
+if [ -z "$PROJECT_VENV" ]; then
+    echo "Project venv not found"
+    return
+fi
+
+if [ -z "$PROJECT_DIR" ]; then
+    echo "Project workspace not found"
+    return
+fi
+
+if [ -z "$ODOO_CONFIG" ]; then
+    echo "Odoo config not found"
+    return
+fi
+
+if [ "$1" = "$PROJECT_NAME" ]; then
+    shift
+fi
+\. "$PROJECT_VENV/bin/activate"
+PYTHONPATH="$PYTHONPATH:$PROJECT_DIR:/opt/odoo/odoo_utils" ODOO_RC="$ODOO_CONFIG" "$JUPYTER_VENV/bin/python" -m jupyter lab --no-browser /opt/odoo/workspace/jupyterlab

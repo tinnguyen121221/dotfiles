@@ -1,0 +1,7 @@
+# If no arg1 or arg1 starts with '-', PROJECT_NAME will be basename of PWD. Otherwise, PROJECT_NAME will be basename of arg1
+if [ -z $1 ] || [[ $1 == -* ]]; then
+    PROJECT_NAME=$(basename "$PWD")
+else
+    PROJECT_NAME=$(basename $1)
+fi
+echo $PROJECT_NAME

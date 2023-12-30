@@ -1,0 +1,17 @@
+PROJECT_NAME=$(odoo-get-project-name $@)
+PROJECT_WORKSPACE="$ODOO_DIR/workspace/$PROJECT_NAME"
+
+# If not PROJECT_WORKSPACE, return
+if [[ ! -d "$PROJECT_WORKSPACE" ]]; then
+    return
+fi
+
+if [[ ! -f "$PROJECT_WORKSPACE/odoo-bin" && -f "$PROJECT_WORKSPACE/odoo/odoo-bin" ]]; then
+    PROJECT_WORKSPACE="$PROJECT_WORKSPACE/odoo"
+fi
+
+# If not ODOO_BIN on workspace, return
+if [[ ! -d "$PROJECT_WORKSPACE" ]]; then
+    return
+fi
+echo $PROJECT_WORKSPACE

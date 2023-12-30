@@ -7,3 +7,4 @@ sudo chown -R $USER:$USER $ODOO_HOME
 mkdir -p "$ODOO_HOME/workspace"
 mkdir -p "$ODOO_HOME/conf.d"
 mkdir -p "$ODOO_HOME/envs"
+mkdir -p "$ODOO_HOME/odoo_utils"
